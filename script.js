@@ -15,7 +15,12 @@ const caixaResultado = document.querySelector('.caixa-resultado');
     },
     {
     enunciado: "Quais são os elementos que compõe a daça?",
-    alternativas: ["Contrapeso", "Espaço","Ordem e Trasnferência"],
+    alternativas: [
+      {
+        texto: “Alternativa 1”,
+        afirmação: “Afirmação da alternativa 1”
+        },
+        {
     },
     {
     enunciado: "O teatro é uma linguagem de que arte?",
