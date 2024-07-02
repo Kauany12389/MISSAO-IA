@@ -1,0 +1,49 @@
+const caixaPrincipal = document.querySelector('.caixa- principal');
+
+const caixaPerguntas = document.querySelector('.caixa-perguntas');
+    
+const caixaAlternativas = document.querySelector('.caixa-alternativas');
+    
+const caixaResultado = document.querySelector('.caixa-resultado');
+    
+ const textoResultado = document.querySelector('.texto-resultado');
+
+ const perguntas = [
+    {
+    enunciado: "Em que lugar teve origem a palavra música?",
+    alternativas: [
+    {
+    
+        texto:"Grécia",
+        afirmação: "Afirmação da alternativa 1"
+        },
+        
+        {texto: "China e india",
+        afirmação: "Afirmação da alternativa 2"
+      },
+    
+      texto: "Brasil",
+      afirmação: "Afirmação da alternativa 3"
+      },
+      ]
+
+    enunciado: "O teatro é uma linguagem de que arte?",
+    alternativas: ["Artes literárias", "Artes cênicas","Artes visuais","Artes músicais"],
+    },
+    ];
+    let atual = 0;
+    let perguntaAtual;
+    function mostraPergunta() {
+        perguntaAtual = perguntas[atual];
+        caixaPerguntas.textContent = perguntaAtual.enunciado;
+        mostraAlternativas();
+        }
+        mostraPergunta();
+
+      function mostraAlternativas() {}
+    for (const alternativa  of perguntaAtual.alternativas) {
+        const botaoAlternativas = document. createElement("button");
+        botaoAlternativas.textContent = alternativa;
+        caixaAlternativas.appendChild(botaoAlternativas);
+    
+    }
