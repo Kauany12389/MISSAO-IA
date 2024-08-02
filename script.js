@@ -14,77 +14,115 @@ const caixaResultado = document.querySelector('.caixa-resultado');
     alternativas: [
     {
     
-        texto: "Grécia",
-        afirmação:"Afirmação da alternativa 1"
+        texto: "China",
+        afirmação:" "
         },
 
-       { texto: "China e Índia",
-        afirmação:"Afirmação da alternativa 2"
+       { 
+        texto: "Gécia",
+        afirmação:""
       },
 
-      {texto: "Brasil",
-      afirmação:"Afirmação da alternativa 3"
+      {
+        texto: "Brasil",
+        afirmação:""
+      },
+
+      {
+        texto: "Índia",
+        afirmação:""
     },
+    
       ]
+    },
 
           enunciado: "Quais são os elementos que compõe a daça?",
-    alternativas: [
+          alternativas: [
     {
 
       texto: "Contrapeso",
-      afirmação:"Afirmação da alternativa 1"
+      afirmação:""
     },
 
-     {texto: "Espaço",
-     afirmação:"Afirmação da alternativa 2"
+     {
+      texto: "Espaço",
+     afirmação:""
     },
 
-:   {texto:"Ordem e tranência",
-    afirmação:"Afirmação da alternativa 3"
-    },    
+:   {
+
+    texto:"Ordem ",
+    afirmação:""
+    }, 
+  {
+    texto:"transfêrencia",
+    afirmação:""
+  },
+  
+  
      ]
 
-   {
+    },
+  
 
     enunciado: "O teatro é uma linguagem de que arte?",
     alternativas: [
     },
 
     texto: "Arte literárias",
-    afirmação:"Afirmação da alternativa 1"
+    afirmação:""
     },
 
-    {texto: "Artes cênicas",
-    afirmação:"Afirmação da alternativa 2"
+    {
+      texto: "Artes cênicas",
+    afirmação:""
     },
 
-    {texto: "Artes Visuais",
-    afirmação:"Afirmação da alternativa 3"
+    {
+      texto: "Artes Visuais",
+    afirmação:""
     },
 
-    {texto:"Artes musicasis",
-    afirmação:"Afirmação da alternativa 4"
+    {
+      texto:"Artes musicasis",
+    afirmação:""
     },  
   
     ];
     let atual = 0;
     let perguntaAtual;
     let historiaFinal = "";
-    function mostraAlternativas() {}
+
+    function mostraAlternativas() {
      if(atual>=perguntas.length) {
       mostraresultado();
       return;
     }
+    perguntaAtual=perguntas[atual];
+    caixaPerguntas.textContent=perguntaAtual.enunciado;
+    caixaAlternativas.textContent="";
+    mostraAlternativas();
+  }
+
+    mostraPergunta();
+   function mostraAlternativas(){
+    for(const alternativas of perguntaAtual.alternativas) {
+      const botaoAlternativas = document.createElement ("button");
+      botaoAlternativas.textContent = alternativas.texto;
+      botaoAlternativas.addEventListener("click",()=>respostaSelecionada(alternativas))
+      caixaAlternativas.appendChild(botaoAlternativas);
+
+    }
+  }
+  function mostraresultado(){
+ caixaPerguntas.textContent = "O cultural abrange vária áreas e dentre ellas temos a art, a música, o tetro,a dança e muitos outros. todas ela conversando entre si, foram um lindo espetáculo."
+textoResultado.textContent =
+
+    caixaAlternativas
 
 
 
-      function respostaSelecionada(opcaoSelecionada) {
-        const afirmacoes = opcaoSelecionada.afirmação;
-        historiaFinal = afirmacoes;
-        atual++;
-        mostraPergunta();
-          caixaAlternativas.appendChild(botaoAlternativas);
-      }
+
     
       
         
