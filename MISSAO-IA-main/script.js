@@ -1,88 +1,116 @@
 const caixaPrincipal = document.querySelector('.caixa- principal');
-
-const caixaPerguntas = document.querySelector('.caixa-perguntas');
-    
-const caixaAlternativas = document.querySelector('.caixa-alternativas');
-    
-const caixaResultado = document.querySelector('.caixa-resultado');
-    
- const textoResultado = document.querySelector('.texto-resultado');
-
- const perguntas = [
+const caixaPerguntas = document.querySelector('.caixa- perguntas');
+const caixaAlternativas = document.querySelector('.caixa-alternativas');    
+const caixaResultado = document.querySelector('.caixa-resultado');  
+const textoResultado = document.querySelector('.texto-resultado');
+const perguntas = [
     {
-    enunciado: "Em que lugar teve origem a palavra música?",
-    alternativas: [ 
-      {
-
-       texto: "Grécia",
-        afirmação: "Afirmação da alternativa 1"
+    enunciado: "Em que lugar teve a origem a palavra música",
+    alternativas: [
+    {
+    texto: "China",
+    afirmação:""
         },
 
-        texto: "China e Índia",
-        afirmação: "Afirmação da alternativa 2"
+       { 
+
+        texto: "Grécia",
+        afirmação:""
+       },
+
+      {
+        texto: "Brasil",
+        afirmação:""
       },
 
-        texto: "Brasil",
-        afirmação: "Afirmação da alternativa 3"
-      }
-     ]
-     {
-    
-    enunciado: "Quais são os elementos que compõe a daça?",
-    alternativas: [,
       {
-        texto: "contrapeso",
-        afirmação: "Afirmação da alternativa 1"
-       },
+        texto: "Índia",
+        afirmação:""
+    }]
+    },
 
-       {texto: "Espaço",
-        afirmação: "Afirmação da alternativa 2"
-       },
-
-       texto: "Ordem e transferência",
-        afirmação: "Afirmação da alternativa 3"
-       },
-      ]
-      
-     {
-    enunciado: "O teatro é uma linguagem de que arte?",
-    alternativas: [,
+      {
+          enunciado: "Quais são os elementos que compõe a daça?",
+          alternativas: [
     {
 
-    texto: "Artes literárias",
-    afirmação: "Afirmação da alternativa 1"
+      texto: "Contrapeso",
+      afirmação:""
     },
 
-    {texto: "Artes cênicas",
-    afirmação: "Afirmação da alternativa 2"
-     },
-
-     {texto: "Artes Visuais",
-    afirmação: "Afirmação da alternativa 3"
+     {
+      texto: "Espaço",
+     afirmação:""
     },
 
-    texto: "Artes musicais",
-    afirmação: "Afirmação da alternativa 4"
-  },
-   ]
+   {
 
+    texto:"Ordem e Transfêrencia ",
+    afirmação:""
+    }] 
+  
+    },
+  
+    {
+    enunciado: "O teatro é uma linguagem de que arte?",
+    alternativas: [
+  {
+
+    texto: "Arte literárias",
+    afirmação:""
+    },
+
+    {
+      texto: "Artes cênicas",
+    afirmação:""
+    },
+
+    {
+      texto: "Artes Visuais",
+    afirmação:""
+    },
+
+    {
+      texto:"Artes musicasis",
+    afirmação:""
+    }]
   },
-    ];
+];
 
     let atual = 0;
     let perguntaAtual;
-    function mostraPergunta() {
-        perguntaAtual = perguntas[atual];
-        caixaPerguntas.textContent = perguntaAtual.enunciado;
-        mostraAlternativas();
-        }
-        mostraPergunta();
+    let historiaFinal = "";
 
-      function mostraAlternativas() {}
-    for (const alternativa  of perguntaAtual.alternativas) {
-        const botaoAlternativas = document. createElement("button");
-        botaoAlternativas.textContent = alternativa;
-        botaoAlternativas.addEventListener("click", () =>respostaSelecionada(alternativa);
-        caixaAlternativas.appendChild(botaoAlternativas);
-    
+    function mostraPergunta() {
+     if(atual >= perguntas.length) {
+      mostraresultado();
+      return;
     }
+    perguntaAtual = perguntas[atual];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    caixaAlternativas.textContent = " ";
+    mostraAlternativas();
+  }
+
+   function mostraAlternativas(){
+    for(const alternativas of perguntaAtual.alternativas) {
+      const botaoAlternativas = document.createElement ("button");
+      botaoAlternativas.textContent = alternativa.texto;
+      botaoAlternativas.addEventListener("click",() => respostaSelecionada(alternativa))
+      caixaAlternativas.appendChild(botaoAlternativas);
+    }
+  }
+
+  function mostraResultado(){
+  caixaPerguntas.textContent = "O cultural abrange vária áreas e dentre ellas temos a art, a música, o tetro,a dança e muitos outros. todas ela conversando entre si, foram um lindo espetáculo."
+  textoResultado.textContent = historiaFinal;
+  caixaAlternativas.textContent = "";
+  }
+
+  function respostaSelecionada(opcaoSelecionada) {
+    const afirmacoes = opcaoSelecionada.afirmação;
+    historiaFinal += afirmacoes + "";
+    atual++;
+    mostraPergunta();
+  }
+  mostraPergunta();
